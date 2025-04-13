@@ -18,10 +18,9 @@ type AppLogger struct {
 }
 
 type GonAirApp struct {
-	Router      *Router
-	FileWatcher *FileWatcher
-	Config      *Config
-	Logger      *AppLogger
+	Router *Router
+	Config *Config
+	Logger *AppLogger
 }
 
 func NewApp() *GonAirApp {
@@ -68,16 +67,6 @@ func (app *GonAirApp) Init() error {
 		app.Logger.InfoLog.Printf("Middleware configured successfully")
 	}
 
-	if app.Config.DevMode && app.Config.LiveReload {
-		watcher, err := NewFileWatcher(app.Router, app.Logger)
-		if err != nil {
-			app.Logger.ErrorLog.Printf("Failed to create file watcher: %v", err)
-			return fmt.Errorf("failed to create file watcher: %w", err)
-		}
-		app.Logger.InfoLog.Printf("File watcher created successfully")
-		app.FileWatcher = watcher
-	}
-
 	elapsedTime := time.Since(startTime)
 	app.Logger.InfoLog.Printf("Go on Airplanes initialized in %v", elapsedTime.Round(time.Millisecond))
 
@@ -107,11 +96,6 @@ func (app *GonAirApp) getConfigureMiddlewareFunc() func(*GonAirApp) {
 }
 
 func (app *GonAirApp) Start() error {
-	if app.FileWatcher != nil {
-		app.FileWatcher.Start()
-		defer app.FileWatcher.Stop()
-		app.Logger.InfoLog.Printf("Live reload enabled - watching for file changes")
-	}
 
 	port := app.Config.Port
 
@@ -127,11 +111,6 @@ func (app *GonAirApp) Start() error {
 	}
 
 	mux := http.NewServeMux()
-
-	if app.Config.DevMode && app.FileWatcher != nil {
-
-		app.FileWatcher.RegisterSocketHandler(mux)
-	}
 
 	mux.Handle("/", app.Router)
 

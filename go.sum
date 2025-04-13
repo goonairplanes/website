@@ -6,3 +6,5 @@ github.com/kleeedolinux/socket.go v0.2.1 h1:vyEUlJMcqqKyOnK8TNCV5dEtu1uBmC2wh8SB
 github.com/kleeedolinux/socket.go v0.2.1/go.mod h1:6YLrRrQWyx35NL6/7gMRqiRo9jYXn2ar0mQPCFbRkqw=
 golang.org/x/sys v0.13.0 h1:Af8nKPmuFypiUBjVoU9V20FiaFXOcuZI21p0ycVYYGE=
 golang.org/x/sys v0.13.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+golang.org/x/sys v0.32.0 h1:s77OFDvIQeibCmezSnk/q6iAfkdiQaJi4VzroCFrN20=
+golang.org/x/sys v0.32.0/go.mod h1:BJP2sWEmIv4KK5OTEluFJCKSidICx8ciO85XgH3Ak8k=

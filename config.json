@@ -30,10 +30,10 @@
     "allowedOrigins": [
       "*"
     ],
-    "devMode": true,
+    "devMode": false,
     "enableCORS": false,
-    "isBuiltSystem": false,
-    "liveReload": true,
+    "isBuiltSystem": true,
+    "liveReload": false,
     "port": "5000",
     "rateLimit": 100
   },

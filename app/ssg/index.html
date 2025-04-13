@@ -1,0 +1,33 @@
+
+
+
+
+
+
+{{define "content"}}
+<div class="bg-white shadow-md rounded-lg p-6">
+    <h2 class="text-2xl font-bold mb-4">Static Site Generation Example</h2>
+    
+    <div class="mb-6">
+        <p class="text-gray-700">
+            This page is pre-rendered at build time and served as a static HTML file. 
+            Static site generation provides blazing fast loading times and excellent caching.
+        </p>
+    </div>
+    
+    <div class="bg-green-100 p-4 rounded-md">
+        <h3 class="font-bold text-green-700">Build Time</h3>
+        <p class="text-green-600">{{.BuildTime}}</p>
+    </div>
+    
+    <div class="mt-6">
+        <h3 class="font-bold mb-2">Benefits of SSG:</h3>
+        <ul class="list-disc pl-6">
+            <li>Extremely fast page loads</li>
+            <li>Lower server costs (no processing per request)</li>
+            <li>Excellent for content that doesn't change frequently</li>
+            <li>Can be deployed to CDNs for global distribution</li>
+        </ul>
+    </div>
+</div>
+{{end}} 

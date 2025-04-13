@@ -1,0 +1,12 @@
+*.md linguist-documentation=true
+*.MD linguist-documentation=true
+*.markdown linguist-documentation=true
+*.ps1 linguist-documentation=true
+*.sh linguist-documentation=true
+
+*.go linguist-language=Go
+
+*.html linguist-language=HTML
+
+/static/js/vendor/* linguist-vendored=true
+/static/css/vendor/* linguist-vendored=true 

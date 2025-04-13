@@ -1,0 +1,63 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {{if .Metadata}}
+    <title>{{.Metadata.Title}}</title>
+    <meta name="description" content="{{.Metadata.Description}}">
+    
+    {{range $key, $value := .Metadata.MetaTags}}
+    <meta name="{{$key}}" content="{{$value}}">
+    {{end}}
+    {{else}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go on Airplanes App</title>
+    {{end}}
+    
+    {{if .Config.DefaultCDNs}}
+    <script src="{{.Config.TailwindCDN}}"></script>
+    <script src="{{.Config.JQueryCDN}}"></script>
+    {{end}}
+    
+    <link rel="icon" type="image/png" href="/static/img/favicon.ico"/>
+    
+    
+    <link rel="stylesheet" href="/static/css/global.css">
+    
+    {{template "head" . }}
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-gray-900">
+                {{if .Metadata}}{{.Metadata.Title}}{{else}}Go on Airplanes Framework{{end}}
+            </h1>
+        </div>
+    </header>
+    
+    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div class="px-4 py-6 sm:px-0">
+            {{if .Data}}
+            {{template "content" .Data}}
+            {{else}}
+            {{template "content" .}}
+            {{end}}
+        </div>
+    </main>
+    
+    <footer class="bg-white shadow mt-auto">
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+            <p>Built with Go on Airplanes - The Go-based fullstack framework</p>
+        </div>
+    </footer>
+    
+    {{template "scripts" . }}
+    
+    <script src="/static/js/scripts.js"></script>
+</body>
+</html>
+{{end}}
+
+{{define "head"}}{{end}}
+{{define "scripts"}}{{end}} 

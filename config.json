@@ -1,0 +1,45 @@
+{
+  "cdn": {
+    "alpine": "https://cdn.jsdelivr.net/npm/alpinejs@3.14.9/dist/cdn.min.js",
+    "jquery": "https://code.jquery.com/jquery-3.7.1.min.js",
+    "petiteVue": "https://unpkg.com/petite-vue@0.2.2/dist/petite-vue.iife.js",
+    "tailwind": "https://cdn.tailwindcss.com",
+    "useCDN": true
+  },
+  "directories": {
+    "appDir": "app",
+    "componentDir": "app/components",
+    "layoutPath": "app/layout.html",
+    "staticDir": "static"
+  },
+  "meta": {
+    "appName": "Go on Airplanes Official Website",
+    "defaultMetaTags": {
+      "description": "A modern Go web application",
+      "og:title": "Go on Airplanes Official Website",
+      "og:type": "website",
+      "twitter:card": "summary",
+      "viewport": "width=device-width, initial-scale=1.0"
+    }
+  },
+  "performance": {
+    "inMemoryJS": true,
+    "templateCache": true
+  },
+  "server": {
+    "allowedOrigins": [
+      "*"
+    ],
+    "devMode": true,
+    "enableCORS": false,
+    "isBuiltSystem": false,
+    "liveReload": true,
+    "port": "5000",
+    "rateLimit": 100
+  },
+  "ssg": {
+    "cacheEnabled": true,
+    "directory": "static/generated",
+    "enabled": true
+  }
+}

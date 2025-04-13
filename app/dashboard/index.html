@@ -1,0 +1,32 @@
+{{ define "content" }}
+<div>
+    <h2 class="text-2xl font-bold mb-6">Dashboard</h2>
+    
+    <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="px-4 py-5 sm:p-6">
+            <div>
+                <h3 class="text-lg font-medium">User Stats</h3>
+                <p class="mt-2 text-sm text-gray-500">This is a demo dashboard page to demonstrate routing</p>
+                <div class="mt-4">
+                    <dl class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                        <div class="px-4 py-5 bg-gray-50 shadow rounded-lg overflow-hidden sm:p-6">
+                            <dt class="text-sm font-medium text-gray-500 truncate">Total Users</dt>
+                            <dd class="mt-1 text-3xl font-semibold text-gray-900">1,234</dd>
+                        </div>
+                        <div class="px-4 py-5 bg-gray-50 shadow rounded-lg overflow-hidden sm:p-6">
+                            <dt class="text-sm font-medium text-gray-500 truncate">Active Sessions</dt>
+                            <dd class="mt-1 text-3xl font-semibold text-gray-900">423</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-8">
+        <a href="/" class="text-blue-600 hover:text-blue-800">
+            &larr; Back to home
+        </a>
+    </div>
+</div>
+{{ end }} 

@@ -3,18 +3,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {{if .Metadata}}
-    <title>{{.Metadata.Title}}</title>
-    <meta name="description" content="{{.Metadata.Description}}">
-    
-    {{range $key, $value := .Metadata.MetaTags}}
-    <meta name="{{$key}}" content="{{$value}}">
-    {{end}}
-    {{else}}
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go on Airplanes App</title>
-    {{end}}
+    <title>Go on Airplanes | Modern Go-based Fullstack Framework</title>
+    <meta name="description" content="Build powerful web applications with Go on Airplanes - the modern, efficient Go-based fullstack framework for developers">
+    <meta name="keywords" content="golang, go framework, fullstack, web development, go on airplanes">
+    <meta name="author" content="Go on Airplanes">
     
+    <meta property="og:title" content="Go on Airplanes | Modern Go-based Fullstack Framework">
+    <meta property="og:description" content="Build powerful web applications with Go on Airplanes - the modern, efficient Go-based fullstack framework for developers">
+    <meta property="og:image" content="/static/img/goa.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://goa.juliaklee.wtf">
+    <meta property="og:site_name" content="Go on Airplanes">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Go on Airplanes | Modern Go-based Fullstack Framework">
+    <meta name="twitter:description" content="Build powerful web applications with Go on Airplanes - the modern, efficient Go-based fullstack framework for developers">
+    <meta name="twitter:image" content="/static/img/goa.png">
+    
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://goa.juliaklee.wtf">
+ 
     {{if .Config.DefaultCDNs}}
     <script src="{{.Config.TailwindCDN}}"></script>
     <script src="{{.Config.JQueryCDN}}"></script>

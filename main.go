@@ -10,8 +10,6 @@ import (
 	"path/filepath"
 	"sync"
 
-	_ "goonairplanes/app/api/test"
-	_ "goonairplanes/app/api/users"
 )
 
 type Configuration struct {

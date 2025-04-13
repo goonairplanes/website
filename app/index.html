@@ -1,61 +1,825 @@
+<!-- js: jquery -->
 {{ define "content" }}
-<div class="text-center">
-    <h2 class="text-2xl font-bold mb-6">Welcome to Go on Airplanes</h2>
-    <p class="mb-4">A Go-based fullstack framework with HTML file-based routing</p>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-        <div class="bg-white overflow-hidden shadow rounded-lg">
-            <div class="px-4 py-5 sm:p-6">
-                <div class="text-center">
-                    <h3 class="text-lg font-medium">File-based Routing</h3>
-                    <p class="mt-2 text-sm text-gray-500">Create pages by adding HTML files in the app directory</p>
+<div class="landing-container overflow-hidden relative z-10">
+    <!-- Hero Section -->
+    <div class="hero-section min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-blue-600 z-0"></div>
+        <div class="particles absolute inset-0 z-0"></div>
+        
+        <div class="container mx-auto px-4 py-16 z-10 relative">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="flex justify-center mb-8">
+                    <img src="https://github.com/egonelbre/gophers/blob/master/.thumb/animation/gopher-dance-long-3x.gif?raw=true" alt="Dancing Gopher" class="h-32 bounce-animation" id="dancing-gopher">
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 opacity-0 transform translate-y-10" id="main-title">Go on Airplanes</h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-10 opacity-0 transform translate-y-10" id="main-subtitle">The lightning-fast, modern web framework with unmatched simplicity</p>
+                
+                <div class="flex flex-wrap justify-center gap-4 mt-10 opacity-0" id="cta-buttons">
+                    <a href="https://github.com/goonairplanes/goonairplanes" class="px-8 py-4 bg-white text-blue-700 rounded-full font-bold text-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105">
+                        Get Started
+                    </a>
+                    <a href="https://github.com/goonairplanes/goonairplanes/tree/main/docs" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all">
+                        Documentation
+                    </a>
                 </div>
             </div>
         </div>
         
-        <div class="bg-white overflow-hidden shadow rounded-lg">
-            <div class="px-4 py-5 sm:p-6">
-                <div class="text-center">
-                    <h3 class="text-lg font-medium">Component System</h3>
-                    <p class="mt-2 text-sm text-gray-500">Create reusable components with Go templates</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bg-white overflow-hidden shadow rounded-lg">
-            <div class="px-4 py-5 sm:p-6">
-                <div class="text-center">
-                    <h3 class="text-lg font-medium">Zero Config</h3>
-                    <p class="mt-2 text-sm text-gray-500">Just run and go - no build step required</p>
-                </div>
-            </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white text-2xl animate-bounce">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
         </div>
     </div>
     
-    <div class="mt-10 mb-10">
-        <a href="/dashboard" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
-            Go to Dashboard
-        </a>
+
+    <!-- GoA vs Next.js Comparison Section -->
+    <div class="py-24 bg-gradient-to-br from-gray-900 to-blue-900 relative overflow-hidden" id="framework-comparison">
+        <div class="absolute inset-0 bg-pattern opacity-10"></div>
+        <!-- Floating Gophers -->
+        <div class="absolute left-10 top-20 opacity-30 hidden lg:block">
+            <img src="https://github.com/egonelbre/gophers/blob/master/.thumb/vector/superhero/standing.svg?raw=true" alt="Superhero Gopher" class="h-32 w-32 transform rotate-12">
+        </div>
+        <div class="absolute right-10 bottom-20 opacity-30 hidden lg:block">
+            <img src="https://github.com/egonelbre/gophers/blob/master/.thumb/vector/superhero/flying.svg?raw=true" alt="Flying Gopher" class="h-32 w-32 transform -rotate-12">
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-white mb-8 opacity-0 transform translate-y-10" id="comparison-title">
+                    <span class="text-blue-400">Go on Airplanes</span> vs <span class="text-gray-400">Next.js</span>
+                </h2>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto opacity-0 transform translate-y-10" id="comparison-subtitle">
+                    Everything React developers love about Next.js, but simpler, faster, and more powerful.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mx-auto max-w-6xl">
+                <!-- Speed & Performance Card -->
+                <div class="comparison-card bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 shadow-xl transform hover:scale-105 transition-all duration-300 opacity-0">
+                    <div class="text-blue-300 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Lightning Fast Performance</h3>
+                    <p class="text-blue-100 mb-6">GoA's Go-powered backend handles concurrent requests with ease, delivering response times that leave JavaScript frameworks in the dust.</p>
+                    <div class="mt-auto">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-blue-200">Request Handling Speed</span>
+                            <span class="text-sm font-bold text-white">32x Faster</span>
+                        </div>
+                        <div class="h-2 bg-white/20 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-500 rounded-full" style="width: 0%;" data-width="80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Simplicity Card -->
+                <div class="comparison-card bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 shadow-xl transform hover:scale-105 transition-all duration-300 opacity-0" data-delay="200">
+                    <div class="text-blue-300 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Zero-Config Heaven</h3>
+                    <p class="text-blue-100 mb-6">Forget complex webpack configs and dependency hell. GoA works out of the box with sensible defaults and minimal setup required.</p>
+                    <div class="flex mt-auto pt-4">
+                        <div class="comparison-pill bg-blue-900/50 text-blue-200 rounded-full px-4 py-2 text-sm mr-2">No node_modules</div>
+                        <div class="comparison-pill bg-blue-900/50 text-blue-200 rounded-full px-4 py-2 text-sm">No build steps</div>
+                    </div>
+                </div>
+                
+                <!-- Developer Experience Card -->
+                <div class="comparison-card bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-blue-500/20 shadow-xl transform hover:scale-105 transition-all duration-300 opacity-0" data-delay="400">
+                    <div class="text-blue-300 mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Intuitive Development</h3>
+                    <p class="text-blue-100 mb-6">GoA's development workflow is straightforward and efficient. Changes reflect instantly with lightning-fast hot reloading.</p>
+                    <div class="mt-auto">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm text-blue-200">Hot Reload Speed</span>
+                            <span class="text-sm font-bold text-white">10x Faster</span>
+                        </div>
+                        <div class="h-2 bg-white/20 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-500 rounded-full" style="width: 0%;" data-width="75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature Comparison -->
+            <div class="mt-20 bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden opacity-0 transform translate-y-10" id="feature-comparison">
+                <div class="p-1 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600"></div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6 text-center">Feature Comparison</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b border-blue-700/30">
+                                    <th class="py-4 px-6 text-blue-300">Feature</th>
+                                    <th class="py-4 px-6 text-blue-400 text-center">Go on Airplanes</th>
+                                    <th class="py-4 px-6 text-gray-400 text-center">Next.js</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-blue-700/30 transition-colors hover:bg-blue-800/20">
+                                    <td class="py-4 px-6 text-blue-100">Server-Side Rendering</td>
+                                    <td class="py-4 px-6 text-center">
+                                        <span class="inline-flex items-center bg-blue-900/50 text-blue-200 rounded-full px-3 py-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                            Built-in & Optimized
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-6 text-center">
+                                        <span class="inline-flex items-center bg-gray-800/50 text-gray-300 rounded-full px-3 py-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                            Yes
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-blue-700/30 transition-colors hover:bg-blue-800/20">
+                                    <td class="py-4 px-6 text-blue-100">File-Based Routing</td>
+                                    <td class="py-4 px-6 text-center">
+                                        <span class="inline-flex items-center bg-blue-900/50 text-blue-200 rounded-full px-3 py-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                            Simple & Intuitive
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-6 text-center">
+                                        <span class="inline-flex items-center bg-gray-800/50 text-gray-300 rounded-full px-3 py-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                            Complex
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-blue-700/30 transition-colors hover:bg-blue-800/20">
+                                    <td class="py-4 px-6 text-blue-100">API Routes</td>
+                                    <td class="py-4 px-6 text-center">
+                                        <span class="inline-flex items-center bg-blue-900/50 text-blue-200 rounded-full px-3 py-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                            Go-Powered Speed
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-6 text-center">
+                                        <span class="inline-flex items-center bg-gray-800/50 text-gray-300 rounded-full px-3 py-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                            JavaScript-Limited
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-blue-700/30 transition-colors hover:bg-blue-800/20">
+                                    <td class="py-4 px-6 text-blue-100">Build Time</td>
+                                    <td class="py-4 px-6 text-center">
+                                        <span class="inline-flex items-center bg-blue-900/50 text-blue-200 rounded-full px-3 py-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                            Lightning Fast
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-6 text-center">
+                                        <span class="inline-flex items-center bg-gray-800/50 text-gray-300 rounded-full px-3 py-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                            </svg>
+                                            Slow for Large Apps
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr class="transition-colors hover:bg-blue-800/20">
+                                    <td class="py-4 px-6 text-blue-100">Dependency Footprint</td>
+                                    <td class="py-4 px-6 text-center">
+                                        <span class="inline-flex items-center bg-blue-900/50 text-blue-200 rounded-full px-3 py-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                            </svg>
+                                            Minimal
+                                        </span>
+                                    </td>
+                                    <td class="py-4 px-6 text-center">
+                                        <span class="inline-flex items-center bg-gray-800/50 text-gray-300 rounded-full px-3 py-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                            </svg>
+                                            Massive node_modules
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Real-world Code Comparison -->
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 opacity-0 transform translate-y-10" id="code-comparison">
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden h-full">
+                    <div class="p-1 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="p-2 rounded-full bg-blue-900/50 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Go on Airplanes API Route</h3>
+                        </div>
+                        <pre class="bg-gray-950 rounded-lg p-5 text-blue-100 overflow-x-auto text-sm mt-4 leading-relaxed">
+package api
+
+import (
+	"goonairplanes/core"
+	"net/http"
+	"time"
+)
+
+func Handler(ctx *core.APIContext) {
+
+	response := map[string]interface{}{
+		"message":   "Hello from Go on Airplanes API route!",
+		"timestamp": time.Now().Format(time.RFC3339),
+		"method":    ctx.Request.Method,
+		"path":      ctx.Request.URL.Path,
+		"params":    ctx.Params,
+		"success":   true,
+	}
+
+	ctx.Success(response, http.StatusOK)
+}
+                        </pre>
+                    </div>
+                </div>
+                
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden h-full">
+                    <div class="p-1 bg-gradient-to-r from-gray-600 via-gray-500 to-gray-600"></div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="p-2 rounded-full bg-gray-800/50 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Next.js API Route</h3>
+                        </div>
+                        <pre class="bg-gray-950 rounded-lg p-5 text-gray-400 overflow-x-auto text-sm mt-4 leading-relaxed">
+import { NextRequest, NextResponse } from 'next/server';
+
+type APIContext = {
+  method: string;
+  path: string;
+  params: Record<string, string>;
+  timestamp: string;
+  request: NextRequest;
+};
+
+type SuccessResponse = {
+  message: string;
+  timestamp: string;
+  method: string;
+  path: string;
+  params: Record<string, string>;
+  success: true;
+};
+
+function createContext(req: NextRequest): APIContext {
+  return {
+    method: req.method,
+    path: req.nextUrl.pathname,
+    params: Object.fromEntries(req.nextUrl.searchParams.entries()),
+    timestamp: new Date().toISOString(),
+    request: req,
+  };
+}
+
+function buildSuccessResponse(ctx: APIContext): SuccessResponse {
+  return {
+    message: 'Hello from TypeScript on Next.js!',
+    timestamp: ctx.timestamp,
+    method: ctx.method,
+    path: ctx.path,
+    params: ctx.params,
+    success: true,
+  };
+}
+
+export async function GET(req: NextRequest) {
+  const ctx = createContext(req);
+  const response = buildSuccessResponse(ctx);
+  return NextResponse.json(response, { status: 200 });
+}
+
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial -->
+            <div class="mt-20 mx-auto max-w-4xl text-center opacity-0 transform translate-y-10" id="framework-testimonial">
+                <div class="bg-white/5 backdrop-blur-md rounded-xl p-8 border border-blue-500/10 relative">
+                    <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-blue-500 rounded-full p-3 shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                    </div>
+                    <div class="text-white text-lg italic mt-4">
+                        "After years of programming with NextJS and struggling with hydration errors — or performing infernal rituals just to get a CRUD working — I decided to switch to Golang and create GoA: what NextJS should’ve always been."
+                    </div>
+                    <div class="mt-6">
+                        <div class="font-bold text-blue-300 text-lg">Júlia Klee</div>
+                        <div class="text-blue-200/80 text-sm">creator of GoA, project lead, and main maintainer.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom CTA -->
+            <div class="mt-16 text-center">
+                <a href="https://github.com/goonairplanes/goonairplanes/blob/main/docs/getting-started.md" class="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-400 text-white rounded-full font-bold text-lg hover:from-blue-500 hover:to-blue-300 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 opacity-0" id="framework-cta">
+                    React Developer? Start Here
+                </a>
+            </div>
+        </div>
     </div>
 
-    <div class="mt-10 border-t pt-8">
-        <h3 class="text-xl font-bold mb-4">Try Our JavaScript Library Examples</h3>
-        <p class="mb-6">Experience the power and flexibility of different JavaScript libraries with Go on Airplanes</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <a href="/vue" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors">
-                Petite-Vue Demo
-            </a>
-            <a href="/jquery" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
-                jQuery Demo
-            </a>
-            <a href="/alpine" class="px-4 py-2 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition-colors">
-                Alpine.js Demo
-            </a>
-            <a href="https://github.com/kleeedolinux/goonairplanes/tree/main/docs" class="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors">
-                Read Documentation
-            </a>
+    <!-- Call to Action Section -->
+    <div class="py-20 bg-gray-900 relative" id="cta-section">
+        <div class="particles-dark absolute inset-0 z-0"></div>
+        <div class="container mx-auto px-4 z-10 relative">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-white mb-8 opacity-0 transform translate-y-10" id="cta-title">Ready to build something amazing?</h2>
+                <p class="text-xl text-gray-300 mb-10 opacity-0 transform translate-y-10" id="cta-subtitle">Get started with Go on Airplanes today and experience web development like never before.</p>
+                
+                <div class="flex flex-wrap justify-center gap-4 opacity-0" id="final-cta">
+                    <a href="https://github.com/goonairplanes/goonairplanes/blob/main/docs/getting-started.md" class="px-8 py-4 bg-blue-600 text-white rounded-full font-bold text-lg hover:bg-blue-500 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 hover:scale-105">
+                        Get Started Now
+                    </a>
+                    <a href="https://github.com/kleeedolinux/goonairplanes" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all">
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-{{ end }} 
+{{ end }}
+
+{{ define "head" }}
+<style>
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-30px) translateX(20px) rotate(45deg);
+    }
+    66% {
+        transform: translateY(20px) translateX(-20px) rotate(120deg);
+    }
+    100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s forwards cubic-bezier(0.13, 0.73, 0.35, 0.94);
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.comparison-row {
+    transition: all 0.3s ease;
+}
+
+.comparison-row:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    transform: scale(1.01);
+}
+
+.bounce-animation {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.code-tab {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.code-tab.active {
+    background-color: #1a202c;
+}
+
+.code-block {
+    display: none;
+    line-height: 1.6;
+}
+
+.code-block.active {
+    display: block;
+}
+
+.code-cursor {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background-color: white;
+    animation: blink 1s infinite;
+    display: none;
+}
+
+@keyframes blink {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+.interactive-card {
+    transition: all 0.5s ease;
+}
+
+.interactive-card:hover .rating-bar .bg-blue-600 {
+    transition: width 1.5s ease-in-out;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear;
+}
+
+@keyframes star {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.animate-star {
+    animation: star 2s ease-in-out infinite;
+}
+
+@keyframes slideInTop {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animate-slide-in-top {
+    animation: slideInTop 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.whitespace-pre-wrap {
+    white-space: pre-wrap;
+}
+
+.bg-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 20l2.83-2.83 1.41 1.41L1.41 21.41 0 22.83V20zm0 18.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM12.41 20l2.83-2.83 1.41 1.41L13.83 21.41l1.41 1.41-1.41 1.41-1.41-1.41-1.41 1.41-1.41-1.41 1.41-1.41L8.59 18.59l2.83-2.83 1.41 1.41L10 20l2.41 2.41 1.41-1.41zM20 12.41l2.83-2.83 1.41 1.41L21.41 13.83l1.41 1.41-1.41 1.41-1.41-1.41-1.41 1.41-1.41-1.41 1.41-1.41-2.83-2.83 2.83-2.83 1.41 1.41L18.59 12.41l2.41 2.41 1.41-1.41zM32.59 34.59l1.41-1.41 1.41 1.41-1.41 1.41-1.41-1.41zm-4-4l1.41-1.41 1.41 1.41-1.41 1.41-1.41-1.41zm1.41-7.42l1.41-1.41 1.41 1.41-1.41 1.41-1.41-1.41zm1.42-7.41l1.41-1.41 1.41 1.41-1.41 1.41-1.41-1.41zM20 30.41l2.83-2.83 1.41 1.41L21.41 31.83l1.41 1.41-1.41 1.41-1.41-1.41-1.41 1.41-1.41-1.41 1.41-1.41-2.83-2.83 2.83-2.83 1.41 1.41L18.59 30.41l2.41 2.41 1.41-1.41z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+</style>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+$(document).ready(function() {
+    // Generate particles for the background
+    function createParticles(container, count, colorClass) {
+        const $container = $(container);
+        
+        for (let i = 0; i < count; i++) {
+            const size = Math.random() * 6 + 2;
+            const $particle = $('<div>').addClass('absolute rounded-full ' + colorClass)
+                .css({
+                    width: size + 'px',
+                    height: size + 'px',
+                    left: Math.random() * 100 + '%',
+                    top: Math.random() * 100 + '%',
+                    opacity: Math.random() * 0.5 + 0.1,
+                    animation: `float ${Math.random() * 20 + 10}s linear infinite`
+                });
+            
+            $container.append($particle);
+        }
+    }
+    
+    createParticles('.particles', 100, 'bg-white');
+    createParticles('.particles-dark', 70, 'bg-blue-400');
+    
+    // Initial animations
+    setTimeout(function() {
+        $('#main-title').addClass('animate-fade-in');
+        
+        setTimeout(function() {
+            $('#main-subtitle').addClass('animate-fade-in');
+            
+            setTimeout(function() {
+                $('#cta-buttons').addClass('animate-fade-in');
+            }, 400);
+        }, 400);
+    }, 500);
+    
+    // Scroll animations
+    function animateOnScroll() {
+        $('.opacity-0').each(function() {
+            const elementTop = $(this).offset().top;
+            const elementBottom = elementTop + $(this).outerHeight();
+            const viewportTop = $(window).scrollTop();
+            const viewportBottom = viewportTop + $(window).height() * 0.8;
+            
+            if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                const delay = $(this).data('delay') || 0;
+                const $element = $(this);
+                
+                setTimeout(function() {
+                    $element.addClass('animate-fade-in');
+                    
+                    // If it's a rating bar card, animate the bar
+                    if ($element.hasClass('interactive-card') && $element.hasClass('animate-fade-in')) {
+                        setTimeout(function() {
+                            const rating = $element.data('rating');
+                            const $bar = $element.find('.rating-bar .bg-blue-600');
+                            const $text = $element.find('.rating-bar .text-right');
+                            
+                            $bar.css('width', rating + '%');
+                            $text.text(rating + '%');
+                        }, 300);
+                    }
+                }, delay);
+            }
+        });
+    }
+    
+    // Animate comparison rows sequentially
+    function animateComparisonChart() {
+        if ($('#comparison-chart').hasClass('animate-fade-in')) {
+            $('.comparison-row').each(function(index) {
+                const $row = $(this);
+                setTimeout(function() {
+                    $row.addClass('animate-fade-in');
+                }, 200 * index);
+            });
+        }
+    }
+    
+    // Handle scroll events
+    $(window).on('scroll', function() {
+        animateOnScroll();
+        animateComparisonChart();
+    });
+    
+    // Trigger initial scroll check
+    animateOnScroll();
+    
+    // Code demo tabs functionality
+    $('.code-tab').click(function() {
+        const tab = $(this).data('tab');
+        
+        // Update tabs
+        $('.code-tab').removeClass('active').addClass('bg-gray-700').removeClass('bg-gray-900');
+        $(this).addClass('active').addClass('bg-gray-900').removeClass('bg-gray-700');
+        
+        // Update content
+        $('.code-block').removeClass('active');
+        $(`.code-block[data-content="${tab}"]`).addClass('active');
+        
+        // Animate typing effect
+        typeCode($(`.code-block[data-content="${tab}"]`).text());
+    });
+    
+    // Typing animation
+    function typeCode(text) {
+        const $cursor = $('.code-cursor');
+        $cursor.show();
+        
+        // Position cursor at beginning
+        $cursor.css({
+            top: $('.code-block.active').position().top + 4,
+            left: $('.code-block.active').position().left
+        });
+        
+        // Simulate typing movement - just moving the cursor around randomly
+        let currentLine = 0;
+        const lines = text.split('\n');
+        const lineHeight = 24; // approximate line height
+        
+        const cursorInterval = setInterval(function() {
+            currentLine = Math.min(currentLine + 1, lines.length - 1);
+            const randomLeft = Math.floor(Math.random() * (lines[currentLine].length * 8)) + $('.code-block.active').position().left;
+            
+            $cursor.css({
+                top: $('.code-block.active').position().top + (currentLine * lineHeight),
+                left: randomLeft
+            });
+            
+            if (currentLine >= lines.length - 1) {
+                clearInterval(cursorInterval);
+                setTimeout(function() {
+                    $cursor.hide();
+                }, 1000);
+            }
+        }, 150);
+    }
+    
+    // Initialize first code tab
+    $('.code-tab[data-tab="html"]').click();
+    
+    // Cool hover effects
+    $('.feature-card, .example-card, .js-tutorial-card').hover(
+        function() {
+            $(this).addClass('transform scale-105 shadow-xl z-10');
+            $(this).removeClass('shadow-lg');
+        },
+        function() {
+            $(this).removeClass('transform scale-105 shadow-xl z-10');
+            $(this).addClass('shadow-lg');
+        }
+    );
+    
+    // 3D card tilt effect
+    $('.feature-card, .example-card, .js-tutorial-card').on('mousemove', function(e) {
+        const card = $(this);
+        const cardRect = card[0].getBoundingClientRect();
+        const cardCenterX = cardRect.left + cardRect.width / 2;
+        const cardCenterY = cardRect.top + cardRect.height / 2;
+        
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+        
+        const rotateY = (mouseX - cardCenterX) / 10;
+        const rotateX = (cardCenterY - mouseY) / 10;
+        
+        card.css('transform', `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`);
+    });
+    
+    $('.feature-card, .example-card, .js-tutorial-card').on('mouseleave', function() {
+        $(this).css('transform', '');
+    });
+    
+    // Gopher animation interaction
+    $('#dancing-gopher').on('click', function() {
+        $(this).addClass('animate-spin');
+        setTimeout(function() {
+            $('#dancing-gopher').removeClass('animate-spin');
+        }, 1000);
+    });
+    
+    // Demo functionality for JS library examples
+    
+    // Alpine.js demo
+    $('#alpine-toggle').on('click', function() {
+        $('#alpine-menu').toggleClass('hidden');
+    });
+    
+    // jQuery demo
+    $('#jquery-toggle').on('click', function() {
+        $('#jquery-result').fadeIn(300);
+        setTimeout(function() {
+            $('#jquery-result').fadeOut(500);
+        }, 2000);
+    });
+    
+    // Petite-Vue demo
+    let petiteVueCount = 0;
+    $('#petite-vue-button').on('click', function() {
+        petiteVueCount++;
+        $('#petite-vue-count').text(petiteVueCount);
+    });
+    
+    // Add entrance animation for sections
+    $(window).on('load', function() {
+        $('#lib-tutorial-title').addClass('animate-slide-in-top');
+        
+        // Animate the comparison section title with a slight delay
+        setTimeout(function() {
+            $('#comparison-title').addClass('animate-fade-in');
+            
+            setTimeout(function() {
+                $('#comparison-subtitle').addClass('animate-fade-in');
+            }, 300);
+        }, 800);
+    });
+    
+    // Framework comparison section animations
+    function animateFrameworkComparison() {
+        // Animate comparison cards when they come into view
+        $('.comparison-card').each(function(index) {
+            if ($(this).hasClass('animate-fade-in')) {
+                // Animate the progress bars inside the cards
+                const $progressBars = $(this).find('.bg-blue-500');
+                if ($progressBars.length) {
+                    setTimeout(function() {
+                        $progressBars.each(function() {
+                            const targetWidth = $(this).data('width');
+                            $(this).css('width', targetWidth);
+                        });
+                    }, 500);
+                }
+            }
+        });
+        
+        // Animate feature comparison table
+        if ($('#feature-comparison').hasClass('animate-fade-in')) {
+            $('table tr').each(function(index) {
+                const $row = $(this);
+                setTimeout(function() {
+                    $row.addClass('animate-fade-in');
+                }, 100 * index);
+            });
+        }
+        
+        // Animate code comparison
+        if ($('#code-comparison').hasClass('animate-fade-in')) {
+            // Add syntax highlighting effect
+            setTimeout(function() {
+                $('.bg-gray-950 pre').addClass('animate-fade-in');
+            }, 300);
+        }
+        
+        // Animate testimonial
+        if ($('#framework-testimonial').hasClass('animate-fade-in')) {
+            setTimeout(function() {
+                $('#framework-cta').addClass('animate-fade-in');
+            }, 500);
+        }
+    }
+    
+    // Add it to scroll event handler
+    $(window).on('scroll', function() {
+        animateOnScroll();
+        animateComparisonChart();
+        animateFrameworkComparison();
+    });
+    
+    // Add 3D tilt effect to comparison cards
+    $('.comparison-card').on('mousemove', function(e) {
+        const card = $(this);
+        const cardRect = card[0].getBoundingClientRect();
+        const cardCenterX = cardRect.left + cardRect.width / 2;
+        const cardCenterY = cardRect.top + cardRect.height / 2;
+        
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+        
+        const rotateY = (mouseX - cardCenterX) / 15;
+        const rotateX = (cardCenterY - mouseY) / 15;
+        
+        card.css('transform', `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`);
+    });
+    
+    $('.comparison-card').on('mouseleave', function() {
+        $(this).css('transform', 'scale(1)');
+    });
+});
+</script>
+{{ end }}

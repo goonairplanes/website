@@ -28,27 +28,17 @@
     {{template "head" . }}
 </head>
 <body class="bg-gray-100 min-h-screen">
-    <header class="bg-white shadow">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <h1 class="text-3xl font-bold text-gray-900">
-                {{if .Metadata}}{{.Metadata.Title}}{{else}}Go on Airplanes Framework{{end}}
-            </h1>
-        </div>
-    </header>
-    
-    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-        <div class="px-4 py-6 sm:px-0">
-            {{if .Data}}
-            {{template "content" .Data}}
-            {{else}}
-            {{template "content" .}}
-            {{end}}
-        </div>
+    <main class="w-full">
+        {{if .Data}}
+        {{template "content" .Data}}
+        {{else}}
+        {{template "content" .}}
+        {{end}}
     </main>
     
-    <footer class="bg-white shadow mt-auto">
-        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center text-gray-500">
-            <p>Built with Go on Airplanes - The Go-based fullstack framework</p>
+    <footer class="bg-blue-800 text-white py-6 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg">Built with <a href="https://github.com/kleeedolinux/goonairplanes" class="text-blue-200 hover:text-white hover:underline">Go on Airplanes</a> - The modern Go-based fullstack framework</p>
         </div>
     </footer>
     

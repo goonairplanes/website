@@ -10,5 +10,5 @@ RUN go build
 
 FROM debian:bookworm
 
-COPY --from=builder /run-app /usr/local/bin/
+COPY --from=builder /goonairplanes /usr/local/bin/
 CMD ["goonairplanes"]
